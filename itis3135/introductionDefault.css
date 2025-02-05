@@ -41,7 +41,7 @@ figure {
     font-style: italic;
 }
 
-img {
-    width: 375px;
-    height: 500px;
+.img {
+    width: 100px;
+    height: 100px;
 }
