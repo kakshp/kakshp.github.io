@@ -1,0 +1,71 @@
+h1 {
+    font-family: Papyrus, fantasy;
+    font-size: 50px;
+    text-shadow: 3px 3px 5px hotpink;
+}
+
+h3 {
+    font-family: 'Times New Roman', serif;
+    font-size: 30px;
+}
+
+body {
+    background-color: white;
+    color: black;
+    margin: 50px;
+    padding: 10px;
+}
+
+ul {
+    text-align: center;
+    list-style-position: inside;
+}
+
+.bad-border {
+    border-top: 10px dotted red;
+    border-right: 10px solid blue;
+    border-bottom: 10px dashed green;
+    border-left: 10px double orange;
+    padding: 20px;
+}
+
+.bad-background {
+    background-color: purple;
+    color: yellow;
+    padding: 20px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.blinking {
+    animation: blink 0.7s infinite alternate;
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.center-text {
+    text-align: center;
+}
+
+.huge-text {
+    font-size: 80px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+footer {
+    margin-top: 200px;
+}
