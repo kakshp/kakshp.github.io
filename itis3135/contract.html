@@ -11,12 +11,7 @@
 
 <body>
     <header>
-        <h1>Kaksh Patel Kind Panda || ITIS3135</h1>
-        <nav>
-            <a href="index.html">Home</a> ||
-            <a href="introduction.html">Introduction</a> ||
-            <a href="contract.html">Contract</a>
-        </nav>
+        <div data-include="components/header.html"></div>
     </header>
 
     <main>
@@ -44,31 +39,10 @@
             Signed: <i>Neel Panajkar, 03/02/2025</i>
         </p>
     </main>
+    <footer>
+        <div data-include="components/footer.html"></div>
+    </footer>
+        <script src="scripts/main.js"></script>
+        <script src="scripts/HTMLinclude.min.js"></script>
 </body>
-<footer class="nav-links">
-    <nav>
-        <a target="_blank" href="https://webpages.charlotte.edu/kpate253">Webspaces</a> ||
-        <a target="_blank" href="https://github.com/kakshp">GitHub</a> ||
-        <a target="_blank" href="https://kakshp.github.io/">GitHub.io</a> ||
-        <a target="_blank" href="https://www.linkedin.com/in/kaksh-patel-1b381125a/">LinkedIn</a> ||
-        <a target="_blank" href="https://www.freecodecamp.org/kakshp">freeCodeCamp</a> ||
-        <a target="_blank" href="https://www.codecademy.com/profiles/kakshp">Codecademy</a>
-    </nav>
-
-    <p>Page Built by <a href="kindpanda.com">Kind Panda Enterprises</a></p>
-
-    <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
-        <img style="border:0;width:88px;height:31px"
-            src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
-    </a>
-    <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
-        <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!">
-    </a>
-
-    <script>
-        document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-        document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
-    </script>
-
-</footer>
+</html>
