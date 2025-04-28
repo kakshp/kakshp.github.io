@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Lessons - CodeMentor JS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="CodeMentor JS Logo">
+                <h1>CodeMentor<span>JS</span></h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="lessons.html">Lessons</a></li>
+                    <li><a href="exercises.html">Exercises</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="projectOverview.html">Project Overview</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>JavaScript Lessons</h2>
+                <p>Start your journey with our structured learning path</p>
+            </div>
+        </section>
+
+        <section class="lessons-container">
+            <div class="container">
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">All Lessons</button>
+                    <button class="filter-btn" data-filter="beginner">Beginner</button>
+                    <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+                </div>
+
+                <div class="lessons-grid">
+                    <div class="lesson-card" data-level="beginner">
+                        <div class="lesson-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Variables & Data Types</h3>
+                        <p>Learn how to store and manipulate data in JavaScript.</p>
+                        <div class="lesson-meta">
+                            <span class="level beginner">Beginner</span>
+                            <span class="duration"><i class="far fa-clock"></i> 20 min</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Start Lesson</a>
+                    </div>
+
+                    <!-- Additional lesson cards would go here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CodeMentor JS</h3>
+                    <p>Your interactive guide to JavaScript fundamentals.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="lessons.html">Lessons</a></li>
+                        <li><a href="exercises.html">Exercises</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-github"></i></a></li>
+                        <li><a href="#"><i class="fab fa-discord"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CodeMentor JS. All rights reserved.</p>
+                <p>
+                    <a href="https://validator.w3.org/check?uri=referer">HTML Valid</a> |
+                    <a href="https://jigsaw.w3.org/css-validator/check/referer">CSS Valid</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Exercises - CodeMentor JS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="CodeMentor JS Logo">
+                <h1>CodeMentor<span>JS</span></h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="lessons.html">Lessons</a></li>
+                    <li><a href="exercises.html">Exercises</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="projectOverview.html">Project Overview</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Practice Exercises</h2>
+                <p>Apply what you've learned with hands-on coding challenges</p>
+            </div>
+        </section>
+
+        <section class="exercises-container">
+            <div class="container">
+                <div class="exercise-tabs">
+                    <button class="tab-btn active" data-tab="beginner">Beginner</button>
+                    <button class="tab-btn" data-tab="intermediate">Intermediate</button>
+                    <button class="tab-btn" data-tab="advanced">Advanced</button>
+                </div>
+
+                <div class="exercise-content active" id="beginner">
+                    <div class="exercise-card">
+                        <h3>Hello World</h3>
+                        <p>Write a function that returns the string "Hello, World!"</p>
+                        <div class="code-editor">
+                            <textarea class="exercise-code" placeholder="Write your code here..."></textarea>
+                            <button class="btn btn-run">Run Code</button>
+                        </div>
+                        <div class="exercise-output">
+                            <h4>Output:</h4>
+                            <div class="output-content"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional exercise tabs would go here -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CodeMentor JS</h3>
+                    <p>Your interactive guide to JavaScript fundamentals.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="lessons.html">Lessons</a></li>
+                        <li><a href="exercises.html">Exercises</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-github"></i></a></li>
+                        <li><a href="#"><i class="fab fa-discord"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CodeMentor JS. All rights reserved.</p>
+                <p>
+                    <a href="https://validator.w3.org/check?uri=referer">HTML Valid</a> |
+                    <a href="https://jigsaw.w3.org/css-validator/check/referer">CSS Valid</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
