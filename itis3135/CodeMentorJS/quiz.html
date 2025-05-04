@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeMentorJS Quiz</title>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --accent: #FF6584;
+            --bg-light: #f4f6fc;
+            --bg-dark: #eceef5;
+            --text-dark: #2e2e2e;
+            --text-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, var(--bg-light), var(--bg-dark));
+            color: var(--text-dark);
+            padding: 2rem;
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 2.5rem;
+            max-width: 700px;
+            margin: auto;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .quiz-container h1 {
+            font-size: 2rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .quiz-container h2 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+        }
+
+        .quiz-container p {
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        label {
+            background-color: var(--bg-light);
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="radio"]:checked + label,
+        label:hover {
+            border-color: var(--primary);
+            background-color: #e8eaff;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #574fd6;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #quiz-result {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: green;
+        }
+
+        #resetBtn {
+            background-color: var(--accent);
+        }
+
+        #resetBtn:hover {
+            background-color: #e04366;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        nav a {
+            margin: 0 0.8rem;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-container {
+                padding: 1.5rem;
+            }
+
+            button {
+                flex: 1;
+            }
+
+            nav a {
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header"></header>
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="lessons.html">Lessons</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="resources.html">Resources</a>
+        <a href="projectOverview.html">Project Overview</a>
+        <a href="about.html">About</a>
+        <a href="../index.html">Click Here To Go Back Home</a>
+    </nav>
+
+    <main class="quiz-container">
+        <h1>JavaScript Fundamentals Quiz</h1>
+        <div id="quiz-question"></div>
+
+        <div class="quiz-buttons">
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+            <button id="submitBtn">Submit</button>
+            <button id="resetBtn" style="display:none;">Reset Quiz</button>
+        </div>
+
+        <div id="quiz-result"></div>
+    </main>
+
+    <footer id="footer">
+        <p>
+            <a href="https://validator.w3.org/check?uri=referer">HTML Valid</a> |
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">CSS Valid</a>
+        </p>
+    </footer>
+
+    <script>
+        const quizData = [
+            {
+                question: "What keyword is used to create a constant in JavaScript?",
+                choices: ["let", "var", "const", "define"],
+                answer: 2
+            },
+            {
+                question: "What is the output of typeof null in JavaScript?",
+                choices: ["null", "object", "undefined", "string"],
+                answer: 1
+            },
+            {
+                question: "What does NaN stand for?",
+                choices: ["No actual Number", "Not a Node", "Not a Number", "Null and None"],
+                answer: 2
+            },
+            {
+                question: "Which symbol is used for single-line comments in JavaScript?",
+                choices: ["<!-- -->", "//", "#", "/* */"],
+                answer: 1
+            },
+            {
+                question: "What is the result of 2 + '2' in JavaScript?",
+                choices: ["22", "4", "NaN", "Error"],
+                answer: 0
+            }
+        ];
+
+        let currentQuestion = 0;
+        const userAnswers = new Array(quizData.length).fill(null);
+
+        const quizQuestion = document.getElementById("quiz-question");
+        const result = document.getElementById("quiz-result");
+        const resetBtn = document.getElementById("resetBtn");
+
+        function renderQuestion() {
+            const q = quizData[currentQuestion];
+            quizQuestion.innerHTML = `
+                <h2>Question ${currentQuestion + 1} of ${quizData.length}</h2>
+                <p>${q.question}</p>
+                ${q.choices.map((choice, i) => `
+                    <label>
+                        <input type="radio" name="answer" value="${i}" ${userAnswers[currentQuestion] === i ? "checked" : ""}>
+                        ${choice}
+                    </label>
+                `).join("")}
+            `;
+        }
+
+        function updateButtons() {
+            document.getElementById("prevBtn").disabled = currentQuestion === 0;
+            document.getElementById("nextBtn").disabled = currentQuestion === quizData.length - 1;
+        }
+
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            saveAnswer();
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+                updateButtons();
+            }
+        });
+
+        document.getElementById("prevBtn").addEventListener("click", () => {
+            saveAnswer();
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+                updateButtons();
+            }
+        });
+
+        document.getElementById("submitBtn").addEventListener("click", () => {
+            saveAnswer();
+            let score = 0;
+            userAnswers.forEach((ans, i) => {
+                if (ans === quizData[i].answer) score++;
+            });
+            result.innerHTML = `<h3>Your Score: ${score} / ${quizData.length}</h3>`;
+            document.querySelectorAll("input[name='answer']").forEach(input => input.disabled = true);
+            document.getElementById("submitBtn").disabled = true;
+            document.getElementById("nextBtn").disabled = true;
+            document.getElementById("prevBtn").disabled = true;
+            resetBtn.style.display = "inline-block";
+        });
+
+        resetBtn.addEventListener("click", () => {
+            currentQuestion = 0;
+            userAnswers.fill(null);
+            renderQuestion();
+            updateButtons();
+            result.innerHTML = "";
+            document.getElementById("submitBtn").disabled = false;
+            document.getElementById("nextBtn").disabled = false;
+            document.getElementById("prevBtn").disabled = false;
+            resetBtn.style.display = "none";
+        });
+
+        function saveAnswer() {
+            const selected = document.querySelector("input[name='answer']:checked");
+            userAnswers[currentQuestion] = selected ? parseInt(selected.value) : null;
+        }
+
+        renderQuestion();
+        updateButtons();
+    </script>
+</body>
+
+</html>

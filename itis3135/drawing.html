@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drawing with p5.js</title>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: linear-gradient(135deg, #ece9e6, #ffffff);
+        color: #333;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    header {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #444;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #0077cc;
+    }
+
+    main {
+        padding: 40px 20px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 20px;
+        font-size: 1rem;
+    }
+
+    #drawingArea {
+        position: relative;
+        display: inline-block;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+    }
+
+    #drawingArea button {
+        position: absolute;
+        top: 10px;
+        padding: 8px 14px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        transition: background 0.3s ease;
+    }
+
+    #clearBtn {
+        left: 10px;
+        background-color: #ef5350;
+        color: white;
+    }
+
+    #undoBtn {
+        left: 100px;
+        background-color: #66bb6a;
+        color: white;
+    }
+
+    #redoBtn {
+        left: 190px;
+        background-color: #ffa726;
+        color: white;
+    }
+
+    #clearBtn:hover {
+        background-color: #c62828;
+    }
+
+    #undoBtn:hover {
+        background-color: #2e7d32;
+    }
+
+    #redoBtn:hover {
+        background-color: #ef6c00;
+    }
+
+    footer {
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.05);
+        font-size: 0.9rem;
+    }
+</style>
+
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Go back Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Drawing with p5.js</h2>
+        <p>This page demonstrates a dynamic drawing using the p5.js library.</p>
+        <div id="drawingArea">
+            <button id="clearBtn">Clear</button>
+            <button id="undoBtn">Undo</button>
+            <button id="redoBtn">Redo</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Kaksh Patel | ITIS 3135</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.8.0/lib/p5.js"></script>
+    <script src="scripts/sketch.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/HTMLinclude.min.js"></script>
+</body>
+
+</html>
